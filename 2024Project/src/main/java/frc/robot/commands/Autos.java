@@ -39,7 +39,7 @@ public class Autos {
     // System.out.println("auton");
 
     // updates LEDs
-    m_ledSubsystem.set_led_color(Constants.AUTON_YELLOW);
+    m_ledSubsystem.set_led_color(Constants.RAINBOW_GLITTER);
 
     // Target Distance IN INCHES
     double targetDistance = 67;

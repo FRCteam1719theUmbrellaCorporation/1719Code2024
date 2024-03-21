@@ -87,6 +87,7 @@ public class SwerveSubsystem extends SubsystemBase {
     SwerveDriveWheel RIGHT_FRONT_DRIVE_WHEEL;
     SwerveDriveWheel RIGHT_BACK_DRIVE_WHEEL;
 
+    public boolean isFieldOriented = false;
     // Gyro
     public static Pigeon2 DRIVE_GYRO;
     public SwerveDriveCoordinator SWERVE_DRIVE_COORDINATOR;
@@ -234,17 +235,17 @@ public class SwerveSubsystem extends SubsystemBase {
 
         }
         
-        public void setSwerveDrive(double direction, double translatePower, double turnPower) {
-            // !! this was just 90 
-             direction = direction - (DRIVE_GYRO.getAngle()%360) ;// gryo on side hence +90 took out +90
-            //  System.out.println(DRIVE_GYRO.getAngle());
-            if ((translatePower > -0.10) && (translatePower < 0.10) && (Math.abs (turnPower) > 0.10)) {
-                inplaceTurn(turnPower);
-            } else {
-                translateTurn(direction - DRIVE_GYRO.getAngle(), translatePower, turnPower);
+        // public void setSwerveDrive(double direction, double translatePower, double turnPower) {
+        //     // !! this was just 90 
+        //      direction = isFieldOriented ? direction - (DRIVE_GYRO.getAngle()%360) : direction;// gryo on side hence +90 took out +90
+        //     //  System.out.println(DRIVE_GYRO.getAngle());
+        //     if ((translatePower > -0.10) && (translatePower < 0.10) && (Math.abs (turnPower) > 0.10)) {
+        //         inplaceTurn(turnPower);
+        //     } else {
+        //         translateTurn(isFieldOriented ? direction - DRIVE_GYRO.getAngle() : direction, translatePower, turnPower);
 
-            }
-        }
+        //     }
+        // }
 
         public void translate(double direction, double power) {
 
@@ -315,7 +316,7 @@ public class SwerveSubsystem extends SubsystemBase {
             rightBackWheel.speedMotors(translatePower);
         }
         public void drifTranslate(double direction, double translatePower, double turnPower){
-                      direction = direction - DRIVE_GYRO.getAngle(); //gyro on hootide hence +90 took out +90 +30 + 180
+                      direction = isFieldOriented ? direction - DRIVE_GYRO.getAngle(): direction; //gyro on hootide hence +90 took out +90 +30 + 180
 
                       SwerveModuleState leftFrontPosition = convertToPower(translatePower, 225, turnPower, direction);
                       SwerveModuleState leftBackPosition = convertToPower(translatePower, 135, turnPower, direction);
