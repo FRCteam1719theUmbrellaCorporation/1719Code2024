@@ -447,23 +447,23 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand(String m_autoSelected) {
     // returns the correct auto called from the smart dashboard
-    return Autos.autoPositionThree(m_DeviceSubsystem, m_AnglePIDSubsystem, m_limelight, m_swerveDrive, m_LedSubsystem);
-  //   if (m_autoSelected.equals("Auto 1")) {
-  //     System.out.println("AUTO 1");
-  //     return Autos.autoPositionOne(m_DeviceSubsystem, m_AnglePIDSubsystem, m_limelight, m_swerveDrive, m_LedSubsystem);
+    // return Autos.autoPositionThree(m_DeviceSubsystem, m_AnglePIDSubsystem, m_limelight, m_swerveDrive, m_LedSubsystem);
+    if (m_autoSelected.equals("Auto 1")) {
+      System.out.println("AUTO 1");
+      return Autos.autoPositionOne(m_DeviceSubsystem, m_AnglePIDSubsystem, m_limelight, m_swerveDrive, m_LedSubsystem);
 
-  //   } else if (m_autoSelected.equals("auto 2")) {
-  //     System.out.println("AUTO 2");
-  //     return Autos.autoPositionTwo(m_DeviceSubsystem, m_AnglePIDSubsystem, m_limelight, m_swerveDrive, m_LedSubsystem);
+    } else if (m_autoSelected.equals("Auto 2")) {
+      System.out.println("AUTO 2");
+      return Autos.autoPositionTwo(m_DeviceSubsystem, m_AnglePIDSubsystem, m_limelight, m_swerveDrive, m_LedSubsystem);
 
-  //   } else if (m_autoSelected.equals("auto 3")) {
-  //     System.out.println("bad news, theres no auto 3 yet. add it :)");
-  //     return Autos.defaultAuto(m_DeviceSubsystem, m_AnglePIDSubsystem, m_limelight, m_swerveDrive, m_LedSubsystem);
-  //     // return Autos.autoPositionThree(m_DeviceSubsystem, m_AnglePIDSubsystem,
-  //     // m_limelight, m_swerveDrive, m_LedSubsystem);
+    } else if (m_autoSelected.equals("Auto 3")) {
+      System.out.println("bad news, theres no auto 3 yet. add it :)");
+      return Autos.autoPositionThree(m_DeviceSubsystem, m_AnglePIDSubsystem, m_limelight, m_swerveDrive, m_LedSubsystem);
+      // return Autos.autoPositionThree(m_DeviceSubsystem, m_AnglePIDSubsystem,
+      // m_limelight, m_swerveDrive, m_LedSubsystem);
 
-  //   } else {
-  //     return Autos.defaultAuto(m_DeviceSubsystem, m_AnglePIDSubsystem, m_limelight, m_swerveDrive, m_LedSubsystem);
-  //   }
+    } else {
+      return Autos.defaultAuto(m_DeviceSubsystem, m_AnglePIDSubsystem, m_limelight, m_swerveDrive, m_LedSubsystem);
+    }
   }
 }
