@@ -6,6 +6,9 @@ package frc.robot.subsystems;
 // import com.revrobotics.CANSparkLowLevel.MotorType;
 // import com.revrobotics.CANSparkMax;
 
+import com.revrobotics.CANSparkLowLevel.MotorType;
+import com.revrobotics.CANSparkMax;
+
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 // import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -15,6 +18,7 @@ import frc.robot.Constants;
 public class ClimbSubsystem extends SubsystemBase {
     private static DoubleSolenoid m_pistons;
 
+    private static CANSparkMax climberMotor;
     // private final Compressor m_Compressor;
   /** Creates a new climbSubsystem. */
   public ClimbSubsystem() {
@@ -22,6 +26,8 @@ public class ClimbSubsystem extends SubsystemBase {
     //PNEUMATICS
     m_pistons = new DoubleSolenoid(Constants.COMPRESSOR_MODULE_NUMBER, PneumaticsModuleType.REVPH, Constants.FORWARDS_SOLENOID_PIN, Constants.BACKWARDS_SOLENOID_PIN);
     m_pistons.set(DoubleSolenoid.Value.kReverse);
+
+    climberMotor = new CANSparkMax(Constants.CLIMBERMOTOR, MotorType.kBrushless);
 
 
       //ystem.out.println("pistons set");
@@ -38,6 +44,14 @@ public class ClimbSubsystem extends SubsystemBase {
   public void lower(){
         m_pistons.set(DoubleSolenoid.Value.kReverse);
 
+  }
+
+  public void moveOnClimber(double speed){
+    climberMotor.set(speed);
+  }
+
+  public void turnOffClimberMotors() {
+    climberMotor.set(0);
   }
 
   @Override

@@ -434,7 +434,20 @@ public class RobotContainer {
         new InstantCommand(() -> {
           m_ClimbSubsystem.lower();
         }));
+
+      // moves the climber motors using the helpercontrollers x val
+      new JoystickButton(m_helperController, 13).onTrue(
+        new InstantCommand(() -> {
+          m_ClimbSubsystem.moveOnClimber(m_helperController.getX());
+        }));
+
+    // turns off the shooter
+    new JoystickButton(m_helperController, 13).onFalse(
+        new InstantCommand(() -> {
+          m_ClimbSubsystem.turnOffClimberMotors();
+        }));
   }
+
 
   /*
    * Use this to pass the autonomous command to the main {@link Robot} class.
