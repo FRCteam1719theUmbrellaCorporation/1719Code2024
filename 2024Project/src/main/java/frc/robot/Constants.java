@@ -231,7 +231,7 @@ public static final double JOYSTICK_SCALE_FACTOR = 2.0;
 public static final double TWIST_SCALE_FACTOR = 2.0;
 
 public static final double SHOOTERINTAKESUPPORT = -0.01;
-public static final int CLIMBERMOTOR = 20; // TODO: add motor here
+public static final int CLIMBERMOTOR = 17; // TODO: add motor here
 
 // public static final int BOTTOM_LIMIT_SWITCH_PIN = 100;
 //boolean for aming

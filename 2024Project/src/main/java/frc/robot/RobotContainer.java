@@ -435,6 +435,10 @@ public class RobotContainer {
           m_ClimbSubsystem.lower();
         }));
 
+
+        // NOTE: button 13 may not exist
+
+
       // moves the climber motors using the helpercontrollers x val
       new JoystickButton(m_helperController, 13).onTrue(
         new InstantCommand(() -> {
