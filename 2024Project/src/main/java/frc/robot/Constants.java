@@ -92,8 +92,8 @@ public final class Constants {
   public static final int CAN_GYRO_PORT = 13;
 
   // these are the pid values for syncronizing direction motors 
-  public static final double DirectionP = 0.005;
-  public static final double DirectionI = 0.00;
+  public static final double DirectionP = 0.003; //changed from .005 to .003 (makes it slower)
+  public static final double DirectionI = 0.0;
   public static final double DirectionD = 0.0;
 
   // ****** Physical measurements of the system ******
