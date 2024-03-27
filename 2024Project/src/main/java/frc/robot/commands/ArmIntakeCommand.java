@@ -6,15 +6,18 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
+import frc.robot.subsystems.DeviceSubsystem;
 import frc.robot.subsystems.ShooterAnglePIDSubsystem;
 
 public class ArmIntakeCommand extends Command {
   private ShooterAnglePIDSubsystem m_angler;
+  private DeviceSubsystem m_device;
 
   /** Creates a new ArmIntakeCommand. */
-  public ArmIntakeCommand(ShooterAnglePIDSubsystem m_angler) {
+  public ArmIntakeCommand(ShooterAnglePIDSubsystem m_angler, DeviceSubsystem m_device) {
     addRequirements(m_angler);
     this.m_angler=m_angler;
+    this.m_device=m_device;
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -35,6 +38,6 @@ public class ArmIntakeCommand extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return m_device.checkRing();
   }
 }

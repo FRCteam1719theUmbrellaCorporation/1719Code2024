@@ -4,8 +4,7 @@
 
 package frc.robot;
 
-import com.ctre.phoenix6.configs.MountPoseConfigs;
-import com.ctre.phoenix6.configs.Pigeon2Configuration;
+
 import com.ctre.phoenix6.hardware.Pigeon2;
 
 import edu.wpi.first.cameraserver.CameraServer;
@@ -16,14 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import edu.wpi.first.cameraserver.CameraServer;
 
-import frc.robot.commands.Autos;
-import frc.robot.subsystems.SwerveSubsystem;
-import frc.robot.subsystems.DeviceSubsystem;
-import frc.robot.subsystems.ShooterAnglePIDSubsystem;
-import frc.robot.subsystems.SwerveDirectionPIDSubsystem;
-import frc.robot.subsystems.LimelightSubsystem;
 
 
 /**
@@ -118,8 +110,7 @@ public class Robot extends TimedRobot {
    m_autonomousCommand = m_robotContainer.getAutonomousCommand(m_chooser.getSelected());
       // m_autonomousCommand = m_robotContainer.getAutonomousCommand("default");
 
-    // Autos.defaultAuto(new DeviceSubsystem(), new ShooterAnglePIDSubsystem(), new LimelightSubsystem(), new SwerveSubsystem(Constants.m_leftFrontDirection, Constants.m_leftBackDirection,
-    // Constants.m_rightFrontDirection, Constants.m_rightBackDirection));
+  
 
   }
   // Return the instance of the gyroscope
@@ -134,7 +125,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during autonomous. */
   @Override
   public void autonomousPeriodic() {
-    //m_autonomousCommand = m_robotContainer.getAutonomousCommand(m_autoSelected);
+ 
     if (m_autonomousCommand != null) {
       m_autonomousCommand.schedule();
     }

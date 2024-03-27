@@ -10,16 +10,14 @@
 
 package frc.robot.subsystems;
 
-//import com.ctre.phoenix6.hardware.CANcoder;
-// import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.math.controller.PIDController;
-import edu.wpi.first.wpilibj.DigitalInput;
+
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj2.command.PIDSubsystem;
-//import com.revrobotics.;
+
 import frc.robot.Constants;
 
 

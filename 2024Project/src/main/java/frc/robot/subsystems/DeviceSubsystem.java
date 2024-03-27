@@ -6,24 +6,39 @@ Specifcally control over the shooter and intake motors and the proximity sensor 
 
 package frc.robot.subsystems;
 import com.revrobotics.ColorSensorV3;
+
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+
+// import com.fasterxml.jackson.databind.introspect.AnnotationCollector.OneAnnotation;
 import com.revrobotics.CANSparkMax;
+
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
+
+
+// Motors
 public class DeviceSubsystem extends SubsystemBase {
 
-    // these 2 controll the the motors of the shooter more specifically intake
+    // control the arm 
+
+
+    // these 2 controll the the motors of the shooter and intake
     private static CANSparkMax SHOOTER;
     private static CANSparkMax INTAKE;
+
 
     private int proximity;
     private ColorSensorV3 m_colorSensor = Constants.m_colorSensor;
 
 
     public DeviceSubsystem() {
+
        SHOOTER = new CANSparkMax(Constants.SHOOTER, MotorType.kBrushless);
        INTAKE = new CANSparkMax(Constants.INTAKE, MotorType.kBrushless);
+
+
     }
 
 

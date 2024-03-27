@@ -13,7 +13,7 @@ package frc.robot.subsystems;
 // import com.revrobotics.CANSparkMax;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-// import edu.wpi.first.wpilibj.Compressor;
+
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -21,15 +21,15 @@ import frc.robot.Constants;
 public class ClimbSubsystem extends SubsystemBase {
     private static DoubleSolenoid m_pistons;
 
-    // private final Compressor m_Compressor;
   /** Creates a new climbSubsystem. */
   public ClimbSubsystem() {
 
     //PNEUMATICS
     m_pistons = new DoubleSolenoid(Constants.COMPRESSOR_MODULE_NUMBER, PneumaticsModuleType.REVPH, Constants.FORWARDS_SOLENOID_PIN, Constants.BACKWARDS_SOLENOID_PIN);
     m_pistons.set(DoubleSolenoid.Value.kReverse);
-    //m_Compressor = new Compressor(PneumaticsModuleType.CTREPCM);
-  
+
+
+      
   }
 
   // this function should make both the left piston and the right piston raise

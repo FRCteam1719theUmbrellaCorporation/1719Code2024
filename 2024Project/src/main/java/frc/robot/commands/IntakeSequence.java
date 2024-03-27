@@ -39,7 +39,7 @@ public class IntakeSequence extends SequentialCommandGroup {
     
   }
 
-  public IntakeSequence(DeviceSubsystem mDeviceSubsystem, ShooterAnglePIDSubsystem m_angler, int stateNum, double ANGLEAIM) {
+  public IntakeSequence(DeviceSubsystem mDeviceSubsystem, ShooterAnglePIDSubsystem m_angler, String action, double ANGLEAIM) {
     this.mDeviceSubsystem = mDeviceSubsystem;
     this.ANGLEAIM = ANGLEAIM;
     
@@ -51,34 +51,34 @@ public class IntakeSequence extends SequentialCommandGroup {
     }
 
     //Turn on intake
-    if (stateNum == 0) {
+    if (action == "intakeOn") {
        addCommands(setIntakeState(m_angler, true), setIntakeSetpoint(m_angler), IntakeMotors(1)); 
     } 
     //Turn off intake
-    else if (stateNum == 1) {
+    else if (action == "intakeOff") {
        addCommands(IntakeMotors(0), setIntakeState(m_angler, false),IntakeMotors(0)); // same question as above
     }
     //Move shooter to an angle
-    else if (stateNum == 2) {
+    else if (action == "2") {
       addCommands(setIntakeState(m_angler, true), setIntakeSetpoint(m_angler));
     }
 
     // this should set the intake to false
-     else if (stateNum == 3) {
+     else if (action == "3") {
       addCommands(setIntakeState(m_angler, false));
     }
 
     //Turn on outtake
-    else if (stateNum == -1) {
+    else if (action == "-1") {
        addCommands(setIntakeState(m_angler, true), setIntakeSetpoint(m_angler), IntakeMotors(-1), waitwait(.05), IntakeMotors(0), setIntakeState(m_angler, false));
     } 
     //Special outtake for amp shooting
-    else if (stateNum == -2) {
+    else if (action == "-2") {
        addCommands(setIntakeState(m_angler, true), setIntakeSetpoint(m_angler), IntakeMotors(-1), waitwait(.5), IntakeMotors(0), setIntakeState(m_angler, false));
     } 
 
     // copy of state -1, where arm does NOT move down. this fixes aim
-  else if (stateNum == -3) {
+  else if (action == "-3") {
        addCommands(setIntakeSetpoint(m_angler), IntakeMotors(-1), waitwait(.05), IntakeMotors(0), setIntakeState(m_angler, false));
     } 
   }

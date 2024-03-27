@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj2.command.PIDCommand;
 import frc.robot.Constants;
 import frc.robot.subsystems.LimelightSubsystem;
 import frc.robot.subsystems.SwerveSubsystem;
-import frc.robot.subsystems.SwerveSubsystem.SwerveDriveCoordinator; // unused import
+
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
@@ -18,14 +18,13 @@ import frc.robot.subsystems.SwerveSubsystem.SwerveDriveCoordinator; // unused im
 public class PIDCommandTurnToAngle extends PIDCommand {
   public double ANGLEAIM;
   /** Creates a new PIDCommandTurnToAngle. */
-  public PIDCommandTurnToAngle(LimelightSubsystem mLimelightSubsystem , SwerveSubsystem mSwerveSubsystem/*, LimelightSwerveManager mLimelightSwerveManager */) {
+  public PIDCommandTurnToAngle(LimelightSubsystem mLimelightSubsystem , SwerveSubsystem mSwerveSubsystem) {
     super(
         // The controller that the command will use
         new PIDController(Constants.PTurnToAngle, Constants.ITurnToAngle, Constants.DTurnToAngle),
         // This should return the measurement
         
          () -> mLimelightSubsystem.getAngleToSpeaker(),
-         //mLimelightSubsystem.getAngleToSpeaker()
         // This should return the setpoint (can also be a constant)
         ()-> 0,
         // This uses the output
@@ -33,10 +32,7 @@ public class PIDCommandTurnToAngle extends PIDCommand {
           //System.out.println("Speaker angle horz: " + mLimelightSubsystem.getAngleToSpeaker());
          mSwerveSubsystem.SWERVE_DRIVE_COORDINATOR.drifTranslate(0, 0, -output);
          
-        //  if (mLimelightSubsystem.getAngleToSpeaker()){
-            //mLimelightSwerveManager.setAnglePID(output, mLimelightSubsystem.getAngleToSpeaker());
-
-        //  }
+   
         });
         
         getController().setTolerance(Constants.LimeLightDegreesTolerance, Constants.LimeLightVelocityTolerance);

@@ -19,11 +19,9 @@ public class ShootAngleControlCommand extends Command {
 
   public boolean manualControl = false;
   private ShooterAnglePIDSubsystem mAnglePIDSubsystem;
-  // private DoubleSupplier getShootAngle;
   private LimelightSubsystem limeLight;
 
   private DoubleSupplier Yposition;
-  // private JoystickButton buttonVal;
 
   private DeviceSubsystem m_DeviceSubsystem;
 
@@ -64,16 +62,9 @@ public class ShootAngleControlCommand extends Command {
     // returns angle as double
  else if (this.limeLight.getDistance() == 0.0 ) {
       mAnglePIDSubsystem.setSetpoint(Constants.DEFAULT_SHOOTER_ANGLE);
-    // } else if (!m_DeviceSubsystem.checkRing()) {
-    //   // System.out.println("theres the limelight!");
-    //   mAnglePIDSubsystem.setSetpoint(this.limeLight.getShootingAngle());
-      
-    // }
-    // in
+
         } else if (!mAnglePIDSubsystem.getIntakeState()) {
-          // mAnglePIDSubsystem.setSetpoint(Constants.DEFAULT_SHOOTER_ANGLE);
- 
-      // System.out.println("theres the limelight!");
+
       mAnglePIDSubsystem.setSetpoint(this.limeLight.getShootingAngle());
       
     }
