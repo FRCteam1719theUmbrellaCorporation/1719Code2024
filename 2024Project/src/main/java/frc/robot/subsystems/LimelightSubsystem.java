@@ -20,6 +20,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class LimelightSubsystem extends SubsystemBase {  
+
+  public static double tagID = 0;
   /** Creates a new LimelightSubsystem. */
   public LimelightSubsystem() {}
 
@@ -110,6 +112,7 @@ public class LimelightSubsystem extends SubsystemBase {
     NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
     NetworkTableEntry tid = table.getEntry("tid");
     double aprilTagId = tid.getInteger(0);
+    tagID = aprilTagId;
     return aprilTagId;
   }
 
