@@ -1,3 +1,5 @@
+<h2><mark> THIS REPOSITORY HAS BEEN ARCHIVED </mark></h2>
+
 # 1719Code2024
 Code for 1719's 2024 robot: RINGO! 
 
